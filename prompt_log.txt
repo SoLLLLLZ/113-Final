@@ -1,0 +1,13 @@
+I used 3 different models for this: Claude Code, Manus, ChatGPT. Each model served their own 
+purpose which is outlined below:
+- Claude Code: Used to create the majority of the project. Did almost all of the coding, debugging, and developing
+- Manus: Used to generate mockups of the frontend and UI elements. I've found that Manus is super powerful for generating
+exactly the type of images I want and I've overall been very satisfied with the manus image generation abilities. These mockups
+were then fed into Claude code so that it could understand my vision. 
+- ChatGPT: Claude struggled with some of the advanced UI elements or architecture. Not sure if it was because of bias from previous prompts
+or from the model limits. But I decided to start with a fresh slate if I kept trying and it wasn't giving me the 
+proper outputs. ChatGPT was used to scaffold and do any coding that Claude didn't do
+
+***I also did spec driven development. I had a variety of specs for each part of the project. 
+
+Prompts for creating the spec:

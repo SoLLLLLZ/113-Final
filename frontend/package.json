@@ -1,0 +1,30 @@
+{
+  "name": "kintsugi-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.115.0",
+    "@react-three/fiber": "^8.17.10",
+    "@supabase/supabase-js": "^2.45.0",
+    "d3-delaunay": "^6.0.4",
+    "gsap": "^3.12.5",
+    "idb-keyval": "^6.2.1",
+    "pixi-viewport": "^6.0.3",
+    "pixi.js": "^8.5.0",
+    "rbush": "^3.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "simplex-noise": "^4.0.3",
+    "three": "^0.168.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "vite": "^8.0.9"
+  }
+}
