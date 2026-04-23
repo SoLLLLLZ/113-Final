@@ -151,8 +151,8 @@ let _pollinationsQueue = Promise.resolve()
 
 function queuePollinations(fn) {
   const next = _pollinationsQueue.then(
-    () => fn().then(r => new Promise(res => setTimeout(() => res(r), 1500))),
-    () => fn().then(r => new Promise(res => setTimeout(() => res(r), 1500))),
+    () => fn().then(r => new Promise(res => setTimeout(() => res(r), 4000))),
+    () => fn().then(r => new Promise(res => setTimeout(() => res(r), 4000))),
   )
   _pollinationsQueue = next.catch(() => {})
   return next
@@ -280,7 +280,7 @@ Return JSON only:
   }
 }
 
-export async function withRetry(fn, maxAttempts = 3, delayMs = 2000) {
+export async function withRetry(fn, maxAttempts = 3, delayMs = 5000) {
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
       return await fn()
