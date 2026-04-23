@@ -1,0 +1,40 @@
+Describe your process. At a high level, how did you go about creating this project?
+
+At a high level I used a very spec driven development. I created an initial spec that outlined
+what the project is and the general workflow I wanted. Then I created seperate specs for each of 
+the parts of the project that I believed were the most difficult. I had Claude browser mode help me
+generate the techstack and overall spec for each of these elements. Then I had Claude code read over
+all the specs to understand completely what the requirements were and how to achieve it. I also used
+Manus very heavily to generate mock ups for the frontend. I believe that the biggest bottleneck with 
+AI driven development is vision. AI doesn't know what your vision is when it comes to appearance 
+and final product. Therefore, giving it a reference is super helpful in my opinion. 
+
+What AI tools and strategies did you use? What models did you choose, and were you using them in a browser chat, in something like Cursor, in the command line, etc? Did you use an agentic process like in HW8, or something else?
+
+I used Claude Code, ChatGPT, and Manus. I decided to do an agentic process with spec driven development. 
+I used a mix of both browser tools and IDE integrated tools. 
+
+Why did you make the choices above?
+
+Claude Code is the best agent for coding imo so I chose to use that for the brunt of the coding work. 
+I also really like Manus for image generation so I used that for the mock up generation. ChatGPT was
+also just really helpful to start at a fresh slate and get another opinion since Claude code is so 
+influenced by what I've been telling it already and it sometimes gets confused. 
+
+What changed from your pre-113 approach? Compare your approach to how you might have approached the project before 15-113. What has changed, if anything? Do you feel more or less well-equipped to create projects like this within a reasonable time frame?
+
+The big changes are some of the overarching approaches. Pre 113 I would still spend a lot of time planning, 
+and using other AI tools to help generate more detailed prompts. However, post 113 I do a lot a lot more planning in comparison. 
+This includes creating the specs, creating mock ups of everything, and writing out multiple implementation plans. I am also
+a lot more knowledgeable about the various topics (SQL, app development, frontend backend, etc) so it's much easier
+for me to generate more specific prompts rather than trusting Claude to do everything for me. In a sense, 113 was 
+super helpful to get fast exposure to so many important skills in web/app dev that I did not understand previously. 
+I definitely feel more equiped to create projects under a tight timeframe, but I would say that I still don't
+really understnad/look at the code AI writes lol. 
+
+What might you do with this project with more time?
+
+One idea I wasn't able to implement is the pottery generation. I wanted to have it so that when you click a button
+it takes all the generated shards and combines them into a pottery piece with the image inside the shards intact. This
+was super complicated and I just did not have enough usage limits to get this completed. But in the future I would definitely
+like to expand upon this project. 

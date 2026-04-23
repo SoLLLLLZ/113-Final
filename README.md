@@ -26,9 +26,10 @@ Inspired by the Japanese philosophy of Kintsugi — the art of repairing broken 
 
 **Emotional Zoom Engine** — Zooming into a shard doesn't just show a bigger image. It generates 4 emotionally-structured depth layers from the person's original words: surface scene → expanded moment → internal/symbolic → core abstraction (3–8 words). Each layer has a text overlay that fades in, and after layer 4 the canvas fades to black and returns you to the mural. All 4 layers are generated upfront in the background the moment a shard is created, so the zoom is seamless.
 
-**Zoomquilt-style infinite zoom** — Built from scratch on a 2D canvas using a crossfade technique: the current image blurs and fades out while the next world fades in at full-screen scale, eliminating the jarring "small square" artifact. Auto-advance with lerp smoothing gives the illusion of continuous motion.
+**Zoomquilt-style infinite zoom** — Built on a 2D canvas using a crossfade technique: the current image blurs and fades out while the next world fades in at full-screen scale, eliminating the jarring "small square" artifact. Auto-advance with lerp smoothing gives the illusion of continuous motion.
 
-**3D glass shards** — Each shard is a procedurally generated glass polygon using Three.js MeshPhysicalMaterial with transmission, IOR, and displacement-mapped front-face vertices that create real 3D facets catching light differently — not just a texture trick.
+**3D glass shards** — Each shard is a procedurally generated glass polygon using Three.js MeshPhysicalMaterial with transmission, IOR, and displacement-mapped front-face vertices. This tool 
+so much degugging. Honestly I spent most of my time just trying to get my shards correct.
 
 **Fully automated pipeline** — From Google Form submission to rendered shard on the live mural with no human intervention. The pipeline handles prompt generation, image generation, storage upload, database insert, seam label generation, and WebSocket broadcast in sequence.
 
@@ -41,8 +42,6 @@ Visit the live site and explore the mural:
 - **Click and drag** to pan
 - **Zoom into a shard** until the camera is close enough — the infinite zoom activates automatically
 - **Scroll down** at any point to exit the zoom and return to the mural
-
-To contribute a response, fill out the Google Form linked in class.
 
 ---
 

@@ -33,5 +33,51 @@ If you click the combine button → Create a 3D piece of pottery using kintsugi 
 - the shards that get generated looked like this. Every time I prompted it it couldnt get the sharp shard look that I want. I want the shards to be like the second image. It should also be 3D, they can overlap, and have glass reflective elements
 - generate a mock up to make sure it works
 - I want to be able to zoom into the picture infinitely. It should be smooth and you should be able to go into each image infinitely. How would I implement this would I use quadtree or fractal or something else. Use this video as reference for the idea I want: https://www.youtube.com/watch?v=8zMowckwKK4&list=PL1D-W2zh2cJKH58ramt21GkCtQ0R-rCUT&index=9
-- 
+
+Manus prompts for mock ups and planning:
+- I want to create a kintsugi inspired project where I get responses from people about their proudest moment, biggest regret, and half finished project. Then each of these get turned into a picture using UI. I want to display these pictures in a shard and each shard should be connected to each other through gold threads showing similar conenctions. Generate a mockup of what this shard framework can look like. Here's are some motivating images I drew on. I want it to have the similar sharp shards feel. 
+- now generate 5 different styles for what the images and shards can look like. Make the connections less messy and mroe explicit
+- How do I get claude code to generate the shard look I want. Look at the reference picture I sent you. The shards are sharp, 3D, have depth, and have the glass feel. Instead what I received was this
+- These are the categories I have: Describe your proudest moment, Describe your biggest regret, What's an unfinished project/dream you had, What would you tell yourself if you could go back in time, What is something you think the world needs more of, How do you define success. I want you to design a circle logo indicator thing for each category similar to the honkai eidelons. This logo will represent the category and then the response will be written in text
+- What algorithm can I use to place the shards and spread them out so that they don't overlap. But I still want the shards to be close just not touching. Claude keeps making them too far apart or making them too close and then they overlap. 
+
+Claude Code prompts for implementation:
+- Look through the spec.md and the supporting md documents that outline how each things works. After understanding the project you will create a phased implementation plan in implementation.md. Have a plan for both backend and frontend. I want backend on render and frontend on github pages. Here are pictures for you to reference for what I want the final shards to look like. I want the same sharp, glassy, aesthetic.
+- ok Good. After you finish implementing each phase I want you to stop completely and tell me how to test it locally on my end to make sure everything works
+- which ones should I do for setting up supabase: 
+Enable Data API
+Autogenerate a RESTful API for your public schema. Recommended if using a client library like supabase-js.
+
+Automatically expose new tables and functions
+Grants privileges to Data API roles by default, exposing new tables and functions.
+We recommend disabling this to control access manually.
+
+Enable automatic RLS
+Create an event trigger that automatically enables Row Level Security on all new tables in the public schema.
+- ok let's do phase 4. Just to remind you the aesthetic we are going for here are the inspriation pictures
+- ok I have the shard but a lot of the picture is cut off and the text is also cut off. The shard also doesn't look very shardlike. I told you to use this as reference. Copy the shard shape exactly
+- give me code to run in the terminal to create more shards and see how it looks
+- it looks like this now. That very good. keep the glassy design. But I want the shards to be more sharp. These shards are very square. I want them to be more diamond shaped. Look at the reference photo again
+- ok also I added more categories. There are six questions: Describe your proudest moment, Describe your biggest regret, What's an unfinished project/dream you had, What would you tell yourself if you could go back in time, What is something you think the world needs more of, How do you define success.
+When showing up in the shard I want the question type to be indicated by the logos I attached. Then the text response to the questions will show up beside the logo. I can only upload a maximum of 5 so I will upload the 6th one seperately
+- I have a few problems I want you to address:
+
+* Some logos are not showing even though I have all the icons uploaded
+* The shards are still too small. the shard to text ratio should be similar to this reference. (Make sure when you make it big, it doesn't mess up the spacing between shards, there should be some spacing.)
+* There is this one spot where the shard doesn't appear
+- it doesn't do that. Right now the experience is:
+
+* zoom in
+* camera snaps
+* have a super zoomed in picture where I can't make out anything
+* I can't zoom in anymore (hit zoom limit)
+I want it so that you don't every get to the stage where you can't zoom in anymore and it infinitely generates themes that are based on the response and you can keep zooming in and "exploring" someone's world. This can be like a quad tree where the next layer is generated while in the current layer but it doens't generate everything. And it should feel seamless like I'm exploring many different scenes. For example for the thing "getting into college felt impossible" an exmaple could be right now there's stairs. I keep zooming in and it takes me inside a creavas of the stairs which leads to a school and I can keep zooming into a classroom where there's a globe and I can zoom into the globe and it can keep going down infinitely. That's just an example
+- is it possible to make the surface look more jagged similar to this reference. This gives it that more 3D feel not just a flat object
+
+
+ChatGPT prompts for extra code:
+- I am trying to create this exact shard appearance in code. I want to have the shard and then put images inside the shard. But Claude wasn't able to generate the shard exactly like the reference picture. I want you to try to create a single shard that looks like the reference picutre in code. This include the glass like texture, 3Dish elements, reflective appearance, and lighting, and jagged shattered glass appearance. This shouldn't just be a regular polygon or anything like that. It should give real shattered glass appearance. Make the edges dynamic
+- ok I just don't want it to look like a regular polygon does your implementation achieve that
+
+
 
