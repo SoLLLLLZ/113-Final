@@ -286,7 +286,7 @@ export async function withRetry(fn, maxAttempts = 3, delayMs = 2000) {
       return await fn()
     } catch (err) {
       if (attempt === maxAttempts) throw err
-      console.log(`Attempt ${attempt} failed, retrying in ${delayMs * attempt}ms`)
+      console.log(`Attempt ${attempt} failed (${err.message}), retrying in ${delayMs * attempt}ms`)
       await new Promise(r => setTimeout(r, delayMs * attempt))
     }
   }
