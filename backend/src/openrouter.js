@@ -146,17 +146,19 @@ Generate the image prompt now.${avoidance}`
   return prompt
 }
 
-// Serializes all Pollinations requests — one at a time, 1.5s gap between each
+// Serializes all Pollinations requests — one at a time, 3s gap between each
 let _pollinationsQueue = Promise.resolve()
 
 function queuePollinations(fn) {
   const next = _pollinationsQueue.then(
-    () => fn().then(r => new Promise(res => setTimeout(() => res(r), 4000))),
-    () => fn().then(r => new Promise(res => setTimeout(() => res(r), 4000))),
+    () => fn().then(r => new Promise(res => setTimeout(() => res(r), 3000))),
+    () => fn().then(r => new Promise(res => setTimeout(() => res(r), 3000))),
   )
   _pollinationsQueue = next.catch(() => {})
   return next
 }
+
+const delay = ms => new Promise(res => setTimeout(res, ms))
 
 // Free image generation via Pollinations.AI — no API key needed
 export async function generateImage(imagePrompt, seed, depth = 1) {
@@ -171,9 +173,15 @@ export async function generateImage(imagePrompt, seed, depth = 1) {
 
     try {
       const res = await fetch(url, { signal: controller.signal })
+      if (res.status === 429) {
+        const retryAfter = parseInt(res.headers.get('retry-after') ?? '30', 10)
+        console.log(`Pollinations rate limited — waiting ${retryAfter}s`)
+        await delay(retryAfter * 1000)
+        throw new Error('Pollinations error: 429')
+      }
       if (!res.ok) throw new Error(`Pollinations error: ${res.status}`)
       const arrayBuf = await res.arrayBuffer()
-      return Buffer.from(arrayBuf)  // raw image bytes — storage.js handles Buffer directly
+      return Buffer.from(arrayBuf)
     } finally {
       clearTimeout(timeout)
     }
