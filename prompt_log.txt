@@ -10,4 +10,28 @@ proper outputs. ChatGPT was used to scaffold and do any coding that Claude didn'
 
 ***I also did spec driven development. I had a variety of specs for each part of the project. 
 
-Prompts for creating the spec:
+Prompts for Claude to create the spec:
+- give me an optimal tech stack and plan for this:
+Kintsugi inspired mural showcasing human emotion
+A living, crowd-sourced art installation where human vulnerability becomes collective beauty.
+Students submit responses for a proudest moment, a biggest regret, or a half-finished dream. Each response is transformed by AI into a unique artwork, displayed as a jagged shard in an ever-growing mosaic. Their own words float over the image they inspired. Every shard connects to others through thick gold threads — a digital Kintsugi, where the cracks between stories become the most beautiful part.
+The mural fills the screen like r/place, dense and alive. Zoom in and the world expands infinitely — each shard reveals more detail, more words, more of someone's interior life. The closer you look, the more human it becomes.
+Inspired by the Japanese philosophy of Kintsugi — the art of repairing broken pottery with gold, treating fracture not as damage but as history worth honoring.
+The more people contribute, the more whole it becomes.
+Workflow:
+Have students respond to a Google form where they can choose to respond to any of the three questions (proudest moment, biggest regret, half finished project)
+Responses get stored into a google spreadsheet
+Responses get parsed and a prompt is generated for each prompt to turn it into an image
+All the images are displayed as shards in a mural and connections are bound together by gold threads
+The words that they wrote in the form will be displayed in the shard over the image
+Using a quadtree structure you can zoom into each image infinitely and explore people’s emotions.
+If you click the combine button → Create a 3D piece of pottery using kintsugi with all the pictures as the shards. You can drag around in space and see all the pictures together combined by gold. Still have the option to go into the image.
+- ok now give me the plan again and I want backend on render and frontend on github pages
+- There are a few hard parts for this project. Let's go through the techstack for each one. First let's do the quadtree shard images. It will require that you can zoom into each image infinitely. so more and mroe image is generated as you zoom in. But these images need to be able to be moved. They will appear as shard form and as the pottery form and should have the same properties.
+- Let's first define the use of the openrouter API. First it will use the Claude model that will take the form response and then turn it into a detailed prompt to generate a vivid image from it. The style for all images should be the same so that it looks like it fits together and no two images should be the same. Then it will take that prompt and feed it into another openrouter model that will actually generate the images.
+- Now let's define the UI. Here are ideas I have for the UI. The first picture is kind of what the shards will look like. The second picture are mockups of the pottery. And the third picture is the inspiration for the shards. They should be sharp and should look like of like glass. This means having some reflective elements and 3D liquid glass elements. I really really like the shard design in this image (1776821516873_image.png). In both the 2D mosaic and the 3D pottery you should be able to move around in space, zoom in and out, etc. Make it similar to this image 1776821516873_image.png
+- the shards that get generated looked like this. Every time I prompted it it couldnt get the sharp shard look that I want. I want the shards to be like the second image. It should also be 3D, they can overlap, and have glass reflective elements
+- generate a mock up to make sure it works
+- I want to be able to zoom into the picture infinitely. It should be smooth and you should be able to go into each image infinitely. How would I implement this would I use quadtree or fractal or something else. Use this video as reference for the idea I want: https://www.youtube.com/watch?v=8zMowckwKK4&list=PL1D-W2zh2cJKH58ramt21GkCtQ0R-rCUT&index=9
+- 
+

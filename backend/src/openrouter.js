@@ -166,11 +166,17 @@ export async function generateImage(imagePrompt, seed, depth = 1) {
     const seedParam = seed != null ? `&seed=${seed}` : ''
     const url = `https://image.pollinations.ai/prompt/${encoded}?width=512&height=512&nologo=true&model=flux${seedParam}`
 
-    const res = await fetch(url)
-    if (!res.ok) throw new Error(`Pollinations error: ${res.status}`)
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), 60_000)
 
-    const arrayBuf = await res.arrayBuffer()
-    return Buffer.from(arrayBuf)  // raw image bytes — storage.js handles Buffer directly
+    try {
+      const res = await fetch(url, { signal: controller.signal })
+      if (!res.ok) throw new Error(`Pollinations error: ${res.status}`)
+      const arrayBuf = await res.arrayBuffer()
+      return Buffer.from(arrayBuf)  // raw image bytes — storage.js handles Buffer directly
+    } finally {
+      clearTimeout(timeout)
+    }
   })
 }
 
